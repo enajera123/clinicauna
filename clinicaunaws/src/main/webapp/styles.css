@@ -1,0 +1,81 @@
+:root {
+  --orange: #ce7711;
+  --gray: #303435;
+  --white-black: #1a1a1a;
+  --orange-text: #ce7711;
+  --main-font: "Ubuntu", sans-serif;
+}
+body {
+  background-color: var(--white-black);
+  color: white;
+  font-family: var(--main-font);
+}
+h1 {
+  font-size: 40px;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.container-info {
+  margin-bottom: 30px;
+}
+.container-info h1,
+.container-info span {
+  text-transform: uppercase;
+}
+.container-info span {
+  color: var(--orange-text);
+}
+img {
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 100px;
+    align-items: center;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  border-radius: 25%;
+  box-shadow: 0 5px 15px 0px rgba(206, 118, 17, 0.6);
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+}
+@media (min-width: 768px) {
+  .avatar {
+    width: 350px;
+    height: 350px;
+  }
+}

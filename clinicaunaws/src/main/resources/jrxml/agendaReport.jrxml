@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AgendaReport" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="46f8091a-156f-4eb2-a6cf-c025f5009873">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conectorOracleDb"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="table" uuid="70a0c220-05e8-482c-965b-2c9be91da2ee">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conectorOracleDb"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="633"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="353"/>
+		<parameter name="doctId" class="java.lang.String"/>
+		<parameter name="maDate" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT MA."SCHEDULEDDATE" AS APPOINTMENT_DATE,
+	MA."REASON" AS APPOINTMENT_REASON,
+	MA."STATE",
+	MA."SCHEDULEDSTARTTIME",
+	MA."SCHEDULEDENDTIME",
+	PA."NAME",
+	PA."FIRSTLASTNAME",
+	PA."SECONDLASTNAME",
+	MA."PATIENTPHONENUMBER"
+FROM "TBL_DOCTOR" D
+	JOIN "TBL_USER" U ON 
+	 D."ID" = U."ID" 
+	JOIN "TBL_AGENDA" A ON 
+	 D."ID" = A."DOCTOR" 
+	JOIN "TBL_MEDICAL_APPOINTMENT" MA ON 
+	 A."ID" = MA."AGENDA" 
+	JOIN "TBL_PATIENT" PA ON 
+	 MA."PATIENT" = PA."ID" 
+WHERE 
+	MA."SCHEDULEDDATE" = TO_DATE(SUBSTR($P{maDate}, 1, 10), 'yyyy-MM-dd') ORDER BY MA."SCHEDULEDDATE"]]>
+		</queryString>
+		<field name="APPOINTMENT_DATE" class="java.sql.Timestamp">
+			<property name="com.jaspersoft.studio.field.name" value="APPOINTMENT_DATE"/>
+			<property name="com.jaspersoft.studio.field.label" value="APPOINTMENT_DATE"/>
+		</field>
+		<field name="APPOINTMENT_REASON" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="APPOINTMENT_REASON"/>
+			<property name="com.jaspersoft.studio.field.label" value="APPOINTMENT_REASON"/>
+		</field>
+		<field name="STATE" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="STATE"/>
+			<property name="com.jaspersoft.studio.field.label" value="STATE"/>
+		</field>
+		<field name="SCHEDULEDSTARTTIME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="SCHEDULEDSTARTTIME"/>
+			<property name="com.jaspersoft.studio.field.label" value="SCHEDULEDSTARTTIME"/>
+		</field>
+		<field name="SCHEDULEDENDTIME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="SCHEDULEDENDTIME"/>
+			<property name="com.jaspersoft.studio.field.label" value="SCHEDULEDENDTIME"/>
+		</field>
+		<field name="NAME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="NAME"/>
+			<property name="com.jaspersoft.studio.field.label" value="NAME"/>
+		</field>
+		<field name="FIRSTLASTNAME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="FIRSTLASTNAME"/>
+			<property name="com.jaspersoft.studio.field.label" value="FIRSTLASTNAME"/>
+		</field>
+		<field name="SECONDLASTNAME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="SECONDLASTNAME"/>
+			<property name="com.jaspersoft.studio.field.label" value="SECONDLASTNAME"/>
+		</field>
+		<field name="PATIENTPHONENUMBER" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="PATIENTPHONENUMBER"/>
+			<property name="com.jaspersoft.studio.field.label" value="PATIENTPHONENUMBER"/>
+		</field>
+	</subDataset>
+	<parameter name="doctorId" class="java.lang.Long"/>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT U."NAME" AS DOCTOR_NAME,
+	U."FIRSTLASTNAME" AS DOCTOR_FIRSTLASTNAME,
+	U."SECONDLASTNAME" AS DOCTOR_SECONDTLASTNAME,
+	D."IDCARD" AS DOCTOR_IDCARD  ,
+	MA."SCHEDULEDDATE" AS APPOINTMENT_DATE/*  ,
+	MA."REASON" AS APPOINTMENT_REASON,
+	MA."STATE",
+	MA."SCHEDULEDTIME",
+	PA."NAME",
+	PA."FIRSTLASTNAME",
+	PA."SECONDLASTNAME",
+	MA."PATIENTPHONENUMBER"*/
+FROM "TBL_DOCTOR" D
+	JOIN "TBL_USER" U ON 
+	 D."ID" = U."ID" 
+	JOIN "TBL_AGENDA" A ON 
+	 D."ID" = A."DOCTOR" 
+	JOIN "TBL_MEDICAL_APPOINTMENT" MA ON 
+	 A."ID" = MA."AGENDA" 
+	/*JOIN "TBL_PATIENT" PA ON 
+	 MA."PATIENT" = PA."ID"*/
+WHERE 
+	 D."ID" = $P{doctorId}
+	 AND A."AGENDADATE" >= TO_DATE($P{startDate}, 'yyyy-MM-dd')
+	  AND A."AGENDADATE" <= TO_DATE($P{endDate}, 'yyyy-MM-dd') ORDER BY MA."SCHEDULEDDATE"]]>
+	</queryString>
+	<field name="DOCTOR_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DOCTOR_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="DOCTOR_NAME"/>
+	</field>
+	<field name="DOCTOR_FIRSTLASTNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DOCTOR_FIRSTLASTNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="DOCTOR_FIRSTLASTNAME"/>
+	</field>
+	<field name="DOCTOR_SECONDTLASTNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DOCTOR_SECONDTLASTNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="DOCTOR_SECONDTLASTNAME"/>
+	</field>
+	<field name="DOCTOR_IDCARD" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DOCTOR_IDCARD"/>
+		<property name="com.jaspersoft.studio.field.label" value="DOCTOR_IDCARD"/>
+	</field>
+	<field name="APPOINTMENT_DATE" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="APPOINTMENT_DATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="APPOINTMENT_DATE"/>
+	</field>
+	<group name="groupByDate">
+		<groupExpression><![CDATA[$F{APPOINTMENT_DATE}]]></groupExpression>
+		<groupHeader>
+			<band height="42">
+				<rectangle radius="5">
+					<reportElement x="9" y="1" width="533" height="32" backcolor="#0C1217" uuid="1a71b5d1-5293-4fd9-8e1e-dc8570d5c399"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineStyle="Solid" lineColor="#223342"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle radius="2">
+					<reportElement x="12" y="1" width="530" height="27" backcolor="#223342" uuid="869e1fc2-3038-472a-9a36-06e740f0a565"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineStyle="Solid" lineColor="#223342"/>
+					</graphicElement>
+				</rectangle>
+				<textField>
+					<reportElement x="207" y="1" width="144" height="26" forecolor="#FFFFFF" uuid="856a2442-711b-43ae-8957-e9cd308e96c6"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{APPOINTMENT_DATE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="46" y="2" width="147" height="24" forecolor="#FFFFFF" uuid="3ed8d5d3-0972-4740-be38-7a267bbcc2e0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{appsDates}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="142" splitType="Stretch">
+			<rectangle radius="4">
+				<reportElement x="25" y="47" width="505" height="89" backcolor="#426649" uuid="90b3988d-e361-4cc9-b959-b7d4fa01e8c7"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#99DEA6"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="2">
+				<reportElement x="30" y="47" width="500" height="84" backcolor="#99DEA6" uuid="3bfd36e9-e965-48a9-bddd-3741c9705d49"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#99DEA6"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="46" y="111" width="40" height="20" forecolor="#000000" uuid="41d8c810-4c26-48c0-9bb8-8029a7ab1e6a"/>
+				<textElement>
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Transparent" x="97" y="111" width="170" height="21" forecolor="#000000" uuid="daa61da9-eb32-4c15-b4c8-71b34607c674"/>
+				<textElement>
+					<font fontName="SansSerif" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOCTOR_IDCARD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="109" y="84" width="140" height="21" forecolor="#000000" uuid="75f7deb8-7391-42a7-86a9-63038522576c"/>
+				<textElement>
+					<font fontName="SansSerif" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOCTOR_NAME}+" "+$F{DOCTOR_FIRSTLASTNAME}+" "+$F{DOCTOR_SECONDTLASTNAME}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement mode="Transparent" x="354" y="93" width="150" height="20" forecolor="#000000" uuid="0403c7a1-dad5-4175-8b0d-fdbe8beef7bb"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="9" width="555" height="30" uuid="c51c7440-27fa-4bb4-b3bb-459bed6480c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{titleAgRep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="52" width="218" height="24" uuid="71764b00-a113-4ef8-b3b3-e10fa4aeb767">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{drInfo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="84" width="70" height="20" uuid="38b3e083-b64d-4796-86a7-958363a46664">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="359" y="63" width="145" height="24" uuid="0e99f4d5-c66e-45a0-a634-49d97bf9bb70">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{rDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="12" y="0" width="530" height="40" isRemoveLineWhenBlank="true" printWhenGroupChanges="groupByDate" backcolor="#1C1D1F" uuid="a4719084-b460-4496-9128-a4e7f82a8cde">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="table" uuid="345da460-3473-452d-ac2e-486e595e4506">
+						<datasetParameter name="doctId">
+							<datasetParameterExpression><![CDATA[$F{DOCTOR_IDCARD}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="maDate">
+							<datasetParameterExpression><![CDATA[$F{APPOINTMENT_DATE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="c04a3086-116f-4b2c-bc5f-bcdb6cec5756">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="8e6a6ff5-b275-4e75-9549-e59a9e24f314"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$R{appStTime}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="20" uuid="b731c323-3f52-479d-b946-8e3c8578d1d1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{SCHEDULEDSTARTTIME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d16528ac-534c-471d-b5e6-74e179107d3c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" forecolor="#FFFFFF" uuid="b3de795e-a480-45d3-b94f-0d60cc3e057e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$R{appEndTime}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="9ce2cab3-d0fd-4f56-923b-1aa3a0f65e2f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{SCHEDULEDENDTIME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="33a13cb0-5710-4aae-9cab-f2773f0cf13c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" forecolor="#FFFFFF" uuid="a3ca93ed-7d15-46e5-ac68-cc7437cf7bb2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$R{patName}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" uuid="99e765b5-1445-4a49-8584-c7c7913bdb5b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{NAME} + " " + $F{FIRSTLASTNAME} + " " + $F{SECONDLASTNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="6526edf0-c9f7-4036-81ea-8a955b193d12">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="20" forecolor="#FFFFFF" uuid="ae23fd9e-59a9-427b-a6af-b4e6feb5c605"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$R{appState}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="20" uuid="17e26e25-f793-4bd4-af85-1b3289ae588b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{STATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="2d50df6e-1fa0-4d4f-8012-d1ceabbc69c9">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" forecolor="#FFFFFF" uuid="19600373-5e46-4e51-b01c-a35b359ac798"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$R{patContact}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" uuid="8caee271-40a9-4a36-9f2c-2d1d1befadb1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{PATIENTPHONENUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="490" y="6" width="60" height="30" uuid="e7deb5c1-8c4c-49c6-92bf-627678ec2ed6"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

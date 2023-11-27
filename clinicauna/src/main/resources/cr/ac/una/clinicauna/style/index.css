@@ -1,0 +1,224 @@
+/* 
+    Created on : 3 oct. 2023, 07:06:57
+    Author     : estebannajera
+*/
+*{
+    -fx-font-family: "Nadeem";
+    -fx-text-fill:#c1c2c2;
+    -fx-dark-orange:#90530c;
+    -fx-orange:#CE7711;
+    -fx-white-orange:#e6b95a;
+    -fx-white-gray:#838586;
+    -fx-gray:#303435;
+    -fx-white-white-gray:#c1c2c2;
+    -fx-black:#000;
+    -fx-white-black:#1a1a1a;
+    -fx-green: #5BD25B;
+    -fx-white-green:#8ce08c;
+    -fx-red:#AA2323;
+    -fx-white-red:#bb4f4f;
+}
+.separator .line {
+    -fx-background-color: -fx-orange;
+    -fx-border-color: transparent ;
+}
+.icon-back{
+    -fx-effect: dropshadow(gaussian, -fx-white-orange,5 , 0, 0, 0);
+}
+.icon-back:hover{
+    -fx-effect: dropshadow(gaussian, transparent,0 , 0, 0, 0);
+    -fx-cursor:hand;
+}
+.bg-gray{
+    -fx-background-color:-fx-gray;
+}
+.bg-black{
+    -fx-background-color:-fx-white-black;
+}
+.jfx-text-field, .jfx-password-field {
+    -jfx-focus-color: -fx-white-gray;
+    -fx-prompt-text-fill: -fx-white-white-gray;
+}
+.a{
+    -fx-text-fill:-fx-orange;
+}
+.a:hover{
+    -fx-effect: dropshadow(gaussian, -fx-white-orange, 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.btn{
+    -fx-background-color:-fx-green;
+    -fx-padding: 5 20 5 20;
+    -fx-text-fill:white;
+    -fx-effect: dropshadow(gaussian, -fx-white-green, 10, 0, 0, 0);
+    -fx-font-size:15;
+}
+.orange-color{
+
+    -fx-background-color:-fx-orange;
+    -fx-effect: dropshadow(gaussian, -fx-orange, 10, 0, 0, 0);
+}
+.orange-color:hover{
+    -fx-effect: dropshadow(gaussian, transparent, 0, 0, 0, 0);
+}
+.red-color{
+
+    -fx-background-color:-fx-red;
+    -fx-effect: dropshadow(gaussian, -fx-white-red, 10, 0, 0, 0);
+}
+.red-color:hover{
+    -fx-effect: dropshadow(gaussian, transparent, 0, 0, 0, 0);
+}
+.btn:hover{
+
+    -fx-effect: dropshadow(gaussian, transparent, 0, 0, 0, 0);
+    -fx-cursor:hand;
+}
+.h1{
+    -fx-font-family:"Verdana";
+    -fx-font-weight:bold;
+    -fx-font-size:40;
+}
+.h2{
+    -fx-font-size:30;
+}
+.h3{
+    -fx-font-size:20;
+}
+
+.a{
+
+}
+Label, RadioButton, ComboBox{
+    -fx-font-size:16;
+}
+/*COMBOBOX DESIGN*/
+.combo-box-base {
+    -fx-background-color: -fx-white-black;
+}
+.combo-box-base:hover {
+    -fx-background-color: -fx-white-black;
+    -fx-cursor: hand;
+}
+.combo-box-base .arrow-button .arrow {
+    -fx-background-color: -fx-orange;
+}
+.combo-box-base .arrow-button {
+    -fx-background-color: -fx-black;
+}
+
+.combo-box .combo-box-popup .list-view .list-cell {
+    -fx-background-color: -fx-white-black;
+    -fx-text-fill:white;
+}
+
+.combo-box .combo-box-popup .list-view .list-cell:hover,
+.combo-box .combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: -fx-gray;
+    -fx-cursor: hand;
+}
+/*TABLEVIEW DESIGN*/
+.table-view {
+    -fx-border-color: -fx-orange;
+    -fx-effect: dropshadow(gaussian, -fx-orange, 10, 0, 0, 0);
+    -fx-background-color: transparent; /* OR  -fx-background-insets: 0.0; */
+}
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-font-size:20px;
+}
+.table-row-cell:filled {
+    -fx-border-color: -fx-orange;
+    -fx-border-insets: 0, 1;
+}
+.table-row-cell:filled:selected{
+    -fx-background-color: -fx-white-black;
+}
+.table-row-cell .cell{
+    -fx-background-color:transparent;
+}
+.table-view .column-header {
+    -fx-background-color: -fx-black;
+    -fx-border-color: -fx-gray;
+}
+/*DATEPICKER DESIGN*/
+.date-picker .cell {
+    -fx-background-color: -fx-white-black;
+    -fx-text-fill:-fx-orange;
+}
+.date-picker .cell:hover {
+    -fx-background-color: -fx-orange;
+    -fx-text-fill:-fx-white-black;
+}
+.date-picker .arrow-button {
+    -fx-background-color: -fx-gray;
+    -fx-background-radius: 0;
+}
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-dark-gray;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-gray;
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill:-fx-orange;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: -fx-orange;
+}
+.date-picker-popup .spinner .button:hover .left-arrow,
+.date-picker-popup .spinner .button:hover .right-arrow {
+    -fx-effect: dropshadow(gaussian, -fx-orange, 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+.date-picker-popup .spinner .button{
+    -fx-background-color:transparent;
+}
+
+.date-picker  {
+    -fx-background-color: transparent;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: -fx-gray;
+    /*    -fx-border-color:-fx-orange;*/
+    -fx-effect: dropshadow(gaussian, -fx-orange,5 , 0, 0, 0);
+    -fx-background-radius: 0;
+}
+.spinner{
+    -fx-font-size:15px;
+}
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-effect: dropshadow(gaussian, -fx-white-orange,5 , 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: -fx-orange;
+
+}
+/*SCROLL PANE*/
+.scroll-pane{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-cursor:hand;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-orange;
+    -fx-background-radius: 20px;
+}

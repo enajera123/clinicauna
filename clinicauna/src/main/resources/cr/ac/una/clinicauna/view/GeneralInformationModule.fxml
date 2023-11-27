@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="parent" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="bg-gray" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.clinicauna.controller.GeneralInformationModuleController">
+   <children>
+      <VBox alignment="CENTER" spacing="30.0" styleClass="bg-white" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </HBox.margin>
+         <children>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER" fillHeight="false">
+                     <children>
+                        <Label text="%generalInformationModule">
+                           <styleClass>
+                              <String fx:value="h1" />
+                              <String fx:value="title" />
+                           </styleClass></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="30.0">
+               <children>
+                  <ImageView fx:id="imgPhoto" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" smooth="false" />
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <VBox alignment="CENTER" spacing="20.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#selectPhotoProfile" text="%selectPhotoProfile">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="orange-color" />
+                                 </styleClass>
+                              </Button>
+                              <JFXTextField fx:id="txfName" promptText="%name">
+                                 <styleClass>
+                                    <String fx:value="bg-black" />
+                                    <String fx:value="h3" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txfEmail" promptText="%email">
+                                 <styleClass>
+                                    <String fx:value="bg-black" />
+                                    <String fx:value="h3" />
+                                 </styleClass>
+                              </JFXTextField>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="20.0" />
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" onAction="#saveChanges" styleClass="btn" text="%save" />
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../style/index.css" />
+      <URL value="@../style/patienthistory.css" />
+   </stylesheets>
+</HBox>

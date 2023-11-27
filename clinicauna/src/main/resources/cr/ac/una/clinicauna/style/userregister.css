@@ -1,0 +1,30 @@
+/*
+ * Empty Stylesheet file.
+ */
+*{
+    -fx-field-border: #4d4d4d;
+}
+.bg-login{
+    -fx-background-radius:20px;
+    -fx-effect: dropshadow(gaussian, -fx-white-orange, 10, 0, 0, 0);
+}
+
+.jfx-text-field, .jfx-password-field {
+    -jfx-focus-color: transparent;
+    -jfx-unfocus-color: transparent;
+}
+.text-field{
+    -fx-background-color:-fx-white-black;
+    -fx-border-color: transparent transparent -fx-field-border transparent;
+}
+.radio-button .radio {
+    -fx-border-color: -fx-orange;
+    -fx-background-color: -fx-white-black;
+    -fx-border-radius: 50%;
+}
+.radio-button .radio:hover{
+    -fx-cursor: hand;
+}
+.radio-button:selected .dot {
+    -fx-background-color: -fx-orange;
+}

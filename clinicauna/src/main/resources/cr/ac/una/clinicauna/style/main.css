@@ -1,0 +1,41 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.jfx-hamburger StackPane{
+
+    -fx-background-color: -fx-orange;
+    -fx-cursor: hand;
+
+}
+.jfx-hamburger:hover{
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-effect: dropshadow(gaussian, -fx-orange, 10, 0, 0, 0);
+}
+.up-menu{
+    -fx-border-color: transparent transparent -fx-orange  transparent; 
+}
+.lateral-menu{
+    -fx-background-radius:0 20px 20px 0;
+    -fx-border-radius:0 20px 20px 0;
+    -fx-border-color:-fx-orange;
+}
+.photoProfile:hover{
+    -fx-cursor: hand;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.optionMenu{
+    -fx-background-color: transparent;
+    -fx-background-size: cover;
+    -fx-font-size:20px;
+}
+
+.optionMenu:selected{
+    -fx-background-color: -fx-gray;
+}
+.optionMenu:hover{
+    -fx-background-color: -fx-gray;
+    -fx-cursor:hand;
+}

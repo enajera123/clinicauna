@@ -1,0 +1,66 @@
+.headerAgenda{
+    -fx-background-color:-fx-orange;
+}
+.arrows-label{
+    -fx-text-fill:-fx-orange;
+    -fx-effect: dropshadow(gaussian, -fx-orange, 10, 0, 0, 0);
+}
+.arrows-label:hover{
+    -fx-text-fill:-fx-white-orange;
+    -fx-cursor: hand;
+    -fx-effect:  dropshadow(gaussian, transparent, 0, 0, 0, 0);
+}
+.paneContainer:hover{
+    -fx-background-color: -fx-white-black;
+    -fx-cursor: hand;
+}
+.agenda-container{
+    -fx-border-color: -fx-black ;
+}
+.actual-day Label{
+    -fx-text-fill:-fx-orange;
+}
+.cardMedicalAppointment{
+    -fx-border-color: -fx-gray;
+    -fx-cursor: open-hand;
+}
+.cardMedicalAppointment:pressed{
+    -fx-cursor: closed-hand;
+}
+.scheduled{
+    -fx-background-color: -fx-orange;
+}
+.scheduled:hover{
+    -fx-background-color: -fx-white-orange;
+}
+.scheduled Label{
+    -fx-text-fill: -fx-black;
+}
+.attended{
+    -fx-background-color: -fx-green;
+}
+.attended:hover{
+    -fx-background-color: -fx-white-green;
+}
+.attended Label{
+    -fx-text-fill: -fx-black;
+}
+.cancelled{
+    -fx-background-color: -fx-red;
+}
+.cancelled:hover{
+    -fx-background-color: -fx-white-red;
+}
+.absent{
+    -fx-background-color: -fx-black;
+}
+.absent:hover{
+    -fx-background-color: -fx-white-black;
+}
+.delete-zone{
+    -fx-background-color: -fx-red;
+    -fx-border-color: -fx-orange;
+}
+.delete-zone-hover{
+    -fx-background-color: -fx-white-red;
+}

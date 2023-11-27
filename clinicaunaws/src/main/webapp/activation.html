@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Activate Account</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Activation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>User Activation</h1>
+      <p>Click the button below to activate your account.</p>
+      <button id="activateButton" type="submit">Activate</button>
+    </div>
+    <script>
+      function getCurrentPageBaseUrl() {
+        const pathArray = window.location.pathname.split("/");
+        pathArray.pop();
+        return window.location.origin + pathArray.join("/");
+      }
+
+      function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+
+      const endpointUrl =
+        getCurrentPageBaseUrl() +
+        "/api/UserController/activate/" +
+        getQueryParam("hash");
+
+      async function sendRESTRequest() {
+        try {
+          const hash = getQueryParam("hash");
+          if (!hash) {
+            console.error("Hash parameter is missing in the URL.");
+            return;
+          }
+
+          const requestOptions = {
+            method: "POST"
+          };
+
+          const response = await fetch(endpointUrl, requestOptions);
+          if (response) {
+            window.location.href = getCurrentPageBaseUrl();
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      const activateButton = document.getElementById("activateButton");
+      activateButton.addEventListener("click", sendRESTRequest);
+    </script>
+  </body>
+</html>

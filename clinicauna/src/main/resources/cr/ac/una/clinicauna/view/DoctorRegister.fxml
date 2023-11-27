@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<HBox fx:id="parent" alignment="CENTER" styleClass="bg-black" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.clinicauna.controller.DoctorRegisterController">
+    <children>
+        <StackPane>
+            <HBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </HBox.margin>
+            <children>
+                <VBox fx:id="mainView" alignment="CENTER">
+                    <children>
+                        <HBox>
+                            <children>
+                                <ImageView fitHeight="70.0" fitWidth="70.0" onMouseClicked="#backFromRegister" pickOnBounds="true" preserveRatio="true" styleClass="icon-back">
+                                    <image>
+                                        <Image url="@../img/back-arrow.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <VBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <ImageView fx:id="imgPhotoProfile" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" smooth="false" VBox.vgrow="ALWAYS">
+                                    <image>
+                                        <Image url="@../img/estetoscopio.png" />
+                                    </image>
+                                    <effect>
+                                        <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" spread="0.34" width="5.0">
+                                            <color>
+                                                <Color red="0.9019607901573181" green="0.7254902124404907" blue="0.3529411852359772" />
+                                            </color>
+                                        </DropShadow>
+                                    </effect>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                                <Label styleClass="h1" text="%doctorRegister" VBox.vgrow="ALWAYS">
+                                    <VBox.margin>
+                                        <Insets bottom="30.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <GridPane hgap="20.0" vgap="30.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="%code" />
+                                              <JFXTextField fx:id="txfCode" labelFloat="true" styleClass="h3">
+                                                  <padding>
+                                                      <Insets left="10.0" />
+                                                  </padding>
+                                              </JFXTextField>
+                                 </children>
+                              </VBox>
+                              <VBox GridPane.columnIndex="1">
+                                 <children>
+                                    <Label text="%carne" />
+                                              <JFXTextField fx:id="txfCarne" labelFloat="true" styleClass="h3">
+                                                  <padding>
+                                                      <Insets left="10.0" />
+                                                  </padding>
+                                              </JFXTextField>
+                                 </children>
+                              </VBox>
+                              <VBox GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="%hourlySlots" />
+                                              <JFXTextField fx:id="txfHourlySlots" labelFloat="true" styleClass="h3">
+                                                  <padding>
+                                                      <Insets left="10.0" />
+                                                  </padding>
+                                              </JFXTextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" styleClass="timePicker" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label styleClass="h3" text="%startingTime" />
+                                    <HBox alignment="CENTER" styleClass="jfx-password-field">
+                                       <children>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label text="%hours" />
+                                                <Spinner fx:id="spStartingHours" editable="true" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label text="%minutes" />
+                                                <Spinner fx:id="spStartingMinutes" editable="true" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" styleClass="timePicker" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label styleClass="h3" text="%endingTime" />
+                                    <HBox alignment="CENTER" styleClass="jfx-password-field">
+                                       <children>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label text="%hours" />
+                                                <Spinner fx:id="spEndingHours" editable="true" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label text="%minutes" />
+                                                <Spinner fx:id="spEndingMinutes" editable="true" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+
+                                    </children>
+                                </GridPane>
+                                <HBox VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#btnRegisterDoctorAction" text="%register">
+                                            <styleClass>
+                                                <String fx:value="btn" />
+                                                <String fx:value="orange-color" />
+                                                <String fx:value="h3" />
+                                            </styleClass>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="50.0" />
+                                    </VBox.margin>
+                                </HBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="50.0" right="50.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </children>
+                    <styleClass>
+                        <String fx:value="bg-gray" />
+                        <String fx:value="bg-login" />
+                    </styleClass>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+    <stylesheets>
+        <URL value="@../style/index.css" />
+        <URL value="@../style/userregister.css" />
+      <URL value="@../style/doctorregister.css" />
+    </stylesheets>
+</HBox>

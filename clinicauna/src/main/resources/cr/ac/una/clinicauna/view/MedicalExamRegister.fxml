@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<VBox fx:id="parent" styleClass="bg-black" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.clinicauna.controller.MedicalExamRegisterController">
+    <children>
+      <StackPane VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+         <children>
+              <VBox fx:id="mainView" alignment="CENTER">
+                  <children>
+                      <HBox>
+                          <children>
+                              <ImageView fitHeight="70.0" fitWidth="70.0" onMouseClicked="#backFromRegister" pickOnBounds="true" preserveRatio="true" styleClass="icon-back">
+                                  <image>
+                                      <Image url="@../img/back-arrow.png" />
+                                  </image>
+                              </ImageView>
+                          </children>
+                          <VBox.margin>
+                              <Insets left="20.0" />
+                          </VBox.margin>
+                      </HBox>
+                      <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                          <children>
+                        <ImageView fx:id="imgPhotoProfile" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../img/estetoscopio.png" />
+                           </image>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" spread="0.34" width="5.0">
+                                 <color>
+                                    <Color red="0.9019607901573181" green="0.7254902124404907" blue="0.3529411852359772" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </ImageView>
+                        <Label styleClass="h1" text="%register" />
+                              <VBox VBox.vgrow="ALWAYS">
+                                  <children>
+                                      <VBox>
+                                          <children>
+                                              <Label text="%examName" />
+                                    <JFXTextField fx:id="txfExamName" />
+                                          </children>
+                                      </VBox>
+                                      <VBox VBox.vgrow="ALWAYS">
+                                          <children>
+                                              <Label text="%notes" />
+                                              <JFXTextArea fx:id="txfNotes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="bg-black" VBox.vgrow="ALWAYS" />
+                                          </children>
+                                      </VBox>
+                                  </children>
+                              </VBox>
+                              <HBox spacing="50.0">
+                                  <children>
+                                      <Button mnemonicParsing="false" onAction="#btnSaveMedicalExamAction" styleClass="btn" text="%save" />
+                                  </children>
+                                  <VBox.margin>
+                                      <Insets top="10.0" />
+                                  </VBox.margin>
+                              </HBox>
+                          </children>
+                          <VBox.margin>
+                              <Insets bottom="50.0" left="50.0" right="50.0" />
+                          </VBox.margin>
+                      </VBox>
+                  </children>
+               <styleClass>
+                  <String fx:value="bg-gray" />
+                  <String fx:value="component" />
+               </styleClass>
+              </VBox>
+         </children>
+      </StackPane>
+    </children>
+    <stylesheets>
+        <URL value="@../style/index.css" />
+        <URL value="@../style/userregister.css" />
+        <URL value="@../style/patienthistory.css" />
+    </stylesheets>
+</VBox>

@@ -1,0 +1,54 @@
+/* 
+    Created on : 3 oct. 2023, 07:06:57
+    Author     : estebannajera
+*/
+.chart-plot-background{
+    -fx-background-color: transparent ;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: -fx-orange;
+}
+.axis {
+    -fx-tick-label-fill: -fx-orange;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: -fx-orange;
+}
+.default-color1.chart-line-symbol {
+    -fx-background-color: -fx-green;
+}
+.default-color0.chart-series-line {
+    -fx-stroke: -fx-orange;
+}
+.default-color1.chart-series-line {
+    -fx-stroke: -fx-green;
+}
+.axis-label{
+    -fx-text-fill:-fx-orange;
+}
+.chart-legend{
+    -fx-background-color: transparent;
+}
+
+
+.component{
+    -fx-background-radius:20px;
+    -fx-effect: dropshadow(gaussian, -fx-white-orange,5 , 0, 0, 0);
+}
+
+
+.accordion .titled-pane .title .arrow-button .arrow {
+    -fx-background-color: -fx-orange;
+}
+.accordion .titled-pane .title  {
+    -fx-background-color: -fx-white-black;
+    -fx-border-color:-fx-orange;
+}
+
+.title{
+    -fx-text-fill:-fx-orange;
+}
+
+
+

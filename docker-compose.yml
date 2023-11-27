@@ -1,0 +1,16 @@
+version: "3"
+services:
+  oracle:
+    container_name: project
+    image: gvenzl/oracle-xe:latest
+    ports:
+      - 1521:1521
+    environment:
+      - ORACLE_PASSWORD=oracle
+      - APP_USER=ClinicaUNA
+      - APP_USER_PASSWORD=una
+    volumes:
+      - oracle-volume:/opt/oracle/oradata
+
+volumes:
+  oracle-volume:

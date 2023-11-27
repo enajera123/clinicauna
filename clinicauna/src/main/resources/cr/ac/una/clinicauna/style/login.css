@@ -1,0 +1,9 @@
+/* 
+    Created on : 2 oct. 2023, 13:31:54
+    Author     : estebannajera
+*/
+
+.bg-login{
+    -fx-background-radius:20px;
+    -fx-effect: dropshadow(gaussian, -fx-white-orange, 10, 0, 0, 0);    
+}

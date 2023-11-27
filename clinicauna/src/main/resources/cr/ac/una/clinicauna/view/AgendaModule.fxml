@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox fx:id="parent" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-gray" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.clinicauna.controller.AgendaModuleController">
+   <children>
+      <HBox spacing="20.0" styleClass="bg-black">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="100.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="50.0">
+                     <children>
+                        <ComboBox fx:id="cbDoctor" editable="true" onAction="#cbSelectDoctor" prefWidth="300.0" promptText="%doctor" />
+                        <HBox spacing="50.0" styleClass="agenda-doctor-header-label-container">
+                           <children>
+                              <Label fx:id="lbDoctorName" styleClass="h2" />
+                              <Label fx:id="lbDoctorCode" styleClass="h2" />
+                              <Label fx:id="lbDoctorIdCard" styleClass="h2" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <Separator disable="true" orientation="VERTICAL" />
+            <HBox alignment="CENTER_LEFT" spacing="50.0">
+               <children>
+                  <HBox spacing="100.0" styleClass="agenda-doctor-header-label-container">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label styleClass="h2" text="%month" />
+                              <Label fx:id="lblMonth" styleClass="h2" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label styleClass="h2" text="%year" />
+                              <Label fx:id="lblYear" styleClass="h2" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" styleClass="agenda-container">
+         <children>
+            <HBox fx:id="hbAgendaHeader" alignment="CENTER_LEFT" styleClass="bg-black">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="30.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#leftArrowAction" pickOnBounds="true" smooth="false" styleClass="icon-back">
+                           <image>
+                              <Image url="@../img/flecha-correcta.png" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#btnSetActualWeekAction" text="%today">
+                           <styleClass>
+                              <String fx:value="orange-color" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#rigthArrowAction" pickOnBounds="true" smooth="false" styleClass="icon-back">
+                           <image>
+                              <Image url="@../img/flecha-correcta.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+            <ScrollPane fitToWidth="true" pannable="true" prefHeight="800.0" styleClass="spinner">
+               <content>
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" styleClass="bg-gray">
+                     <children>
+                        <GridPane fx:id="gpAgenda" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" styleClass="agenda" HBox.hgrow="ALWAYS">
+                          <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="7">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Domingo" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Lunes" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="2">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Martes" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="3">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Miercoles" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="4">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Jueves" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="5">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Viernes" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="bg-black" GridPane.columnIndex="6">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Sabado" />
+                                 </children>
+                              </HBox>
+                              <HBox maxWidth="1.7976931348623157E308" styleClass="bg-black" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="150.0" />
+                           </columnConstraints>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <children>
+                  <HBox spacing="50.0">
+                     <children>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Circle radius="20.0" stroke="BLACK" strokeType="INSIDE" styleClass="absent" />
+                              <Label text="%absent" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Circle fill="#ce7711" radius="20.0" stroke="BLACK" strokeType="INSIDE" styleClass="absent" />
+                              <Label text="%scheduled" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Circle fill="#aa2323" radius="20.0" stroke="BLACK" strokeType="INSIDE" styleClass="absent" />
+                              <Label text="%canceled" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Circle fill="#5bd25b" radius="20.0" stroke="BLACK" strokeType="INSIDE" styleClass="absent" />
+                              <Label text="%attended" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fx:id="deleteZone" fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../img/basurero.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../style/agendamodule.css" />
+      <URL value="@../style/index.css" />
+      <URL value="@../style/userregister.css" />
+   </stylesheets>
+</VBox>

@@ -1,0 +1,35 @@
+{
+  "resourcePackages": ["cr.ac.una.clinicaunaws.controller"],
+  "prettyPrint": true,
+  "cacheTTL": 0,
+  "openAPI": {
+    "info": {
+      "version": "1.0.0",
+      "title": "clinicauna",
+      "description": "clinicaunaws REST API",
+      "contact": {
+        "name": "Daniel Araya",
+        "email": "darayaroma@gmail.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080/clinicaunaws/"
+      },
+      {
+        "url": "https://localhost:8080/clinicaunaws/"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "jwt-auth": {
+          "type": "http",
+          "description": "Json Web Token (JWT)",
+          "in": "header",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  }
+}

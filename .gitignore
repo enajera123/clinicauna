@@ -1,0 +1,9 @@
+.vscode
+.idea
+/clinicauna/target/
+/clinicauna/nbactions.xml
+*.wsdl
+/clinicaunaws/target/
+/clinicaunaws/nb-configuration.xml
+.DS_Store
+*.iml

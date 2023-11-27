@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<HBox fx:id="parent" alignment="CENTER" styleClass="bg-black" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.clinicauna.controller.PatientCareRegisterController">
+   <children>
+      <StackPane>
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </HBox.margin>
+         <children>
+            <VBox fx:id="mainView" alignment="CENTER">
+               <children>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" onMouseClicked="#backFromRegister" pickOnBounds="true" preserveRatio="true" styleClass="icon-back">
+                           <image>
+                              <Image url="@../img/back-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ImageView fx:id="imgPhotoProfile" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" smooth="false" VBox.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../img/estetoscopio.png" />
+                           </image>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" spread="0.34" width="5.0">
+                                 <color>
+                                    <Color red="0.9019607901573181" green="0.7254902124404907" blue="0.3529411852359772" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label styleClass="h1" text="%register" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="30.0" />
+                           </VBox.margin></Label>
+                        <GridPane hgap="20.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                 <children>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%bloodPressure" />
+                                          <Label styleClass="title" text="mmHg" />
+                                       </children>
+                                    </HBox>
+                                    <Spinner fx:id="spBloodPresure" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1">
+                                 <children>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%heartRate" />
+                                          <Label styleClass="title" text="bpm" />
+                                       </children>
+                                    </HBox>
+                                    <Spinner fx:id="spHeartRate" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%temperature" />
+                                          <Label styleClass="title" text="Cº" />
+                                       </children>
+                                    </HBox>
+                                    <Spinner fx:id="spTemperature" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">
+                                 <children>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%height" />
+                                          <Label styleClass="title" text="M" />
+                                       </children>
+                                    </HBox>
+                                    <Spinner fx:id="spHeight" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%weight" />
+                                          <Label styleClass="title" text="Kg" />
+                                       </children>
+                                    </HBox>
+                                    <Spinner fx:id="spWeight" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                 </children>
+                              </VBox>
+                              <HBox alignment="BOTTOM_CENTER" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="IMC:">
+                                       <styleClass>
+                                          <String fx:value="h2" />
+                                          <String fx:value="title" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lblBodyMassIndex" styleClass="h2" text="0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </GridPane>
+                        <Label text="%observationSection">
+                           <styleClass>
+                              <String fx:value="title" />
+                              <String fx:value="h2" />
+                           </styleClass></Label>
+                        <GridPane hgap="20.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label styleClass="h3" text="%carePlan" />
+                                    <JFXTextArea fx:id="txfCarePlan" labelFloat="true" prefHeight="60.0" prefWidth="250.0" styleClass="bg-black" />
+                                 </children>
+                              </VBox>
+                              <VBox GridPane.columnIndex="1">
+                                 <children>
+                                    <Label styleClass="h3" text="%observations" />
+                                    <JFXTextArea fx:id="txfObservations" labelFloat="true" prefHeight="60.0" prefWidth="250.0" styleClass="bg-black" />
+                                 </children>
+                              </VBox>
+                              <VBox GridPane.columnIndex="2">
+                                 <children>
+                                    <Label styleClass="h3" text="%physicalExam" />
+                                    <JFXTextArea fx:id="txfPhysicalExam" labelFloat="true" prefHeight="60.0" prefWidth="250.0" styleClass="bg-black" />
+                                 </children>
+                              </VBox>
+                              <VBox GridPane.rowIndex="1">
+                                 <children>
+                                    <Label styleClass="h3" text="%treatment" />
+                                    <JFXTextArea fx:id="txfTreatment" labelFloat="true" prefHeight="60.0" prefWidth="250.0" styleClass="bg-black" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#btnRegisterPatientCareAction" text="%register">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="orange-color" />
+                                    <String fx:value="h3" />
+                                 </styleClass></Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="50.0" right="50.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+               <styleClass>
+                  <String fx:value="bg-gray" />
+                  <String fx:value="bg-login" />
+               </styleClass>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+   <stylesheets>
+      <URL value="@../style/index.css" />
+      <URL value="@../style/userregister.css" />
+      <URL value="@../style/patienthistory.css" />
+   </stylesheets>
+</HBox>
